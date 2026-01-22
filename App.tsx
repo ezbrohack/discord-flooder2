@@ -182,7 +182,7 @@ export default function App() {
             activeTimeouts.current[client.id] = setTimeout(() => {
                 setClients(prev => prev.map(c => c.id === client.id ? { ...c, status: 'running' } : c));
                 activeIntervals.current[client.id] = setInterval(async () => {
-                    const random = Math.floor(Math.random() * 90000) + 10000;
+                    const random = Math.floor(Math.random() * 1000) + 9000;
                     const finalMessage = config.messageTemplate.replace(/{random}/g, random.toString());
                     try {
                         const res = await fetch(`https://discord.com/api/v9/channels/${config.channelId}/messages`, {
